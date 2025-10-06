@@ -56,19 +56,23 @@
     p {
       margin-bottom: 15px;
     }
-    .projetos {
+.projetos {
   display: flex;
-  flex-wrap: nowrap;       /* força os projetos ficarem na mesma linha */       /* permite rolagem horizontal */
-  gap: 12px;               /* espaçamento entre projetos, mais suave */
-  padding-bottom: 10px;    /* para não colar na borda do scroll */
+  flex-wrap: nowrap;             /* mantém os projetos lado a lado */
+  overflow-x: auto;              /* adiciona rolagem horizontal */
+  gap: 12px;                     /* espaçamento entre projetos */
+  padding-bottom: 10px;
   -webkit-overflow-scrolling: touch; /* rolagem suave no iOS */
   justify-content: flex-start;
+  scroll-snap-type: x mandatory; /* opcional: faz o scroll "encaixar" nos cards */
 }
 
 .projeto {
-  flex-shrink: 0;          /* impede que o projeto encolha */
-  width: 280px;            /* largura fixa pra manter padrão */
+  flex-shrink: 0;                /* impede que o projeto encolha */
+  width: 280px;
+  scroll-snap-align: start;      /* usado com o scroll-snap-type */
 }
+
 
     .projeto {
       background: #44475a;
